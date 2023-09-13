@@ -13,9 +13,11 @@ import 'package:flutter_color_app/features/color/domain/usecase/get_random_color
     as _i4;
 import 'package:flutter_color_app/features/color/presentation/cubit_color/cubit/color_cubit.dart'
     as _i5;
-import 'package:flutter_color_app/routing/app_router.dart' as _i3;
+
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
+
+import 'package:flutter_color_app/routing/app_router.dart' as _i3;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt

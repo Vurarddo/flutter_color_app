@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter_color_app/features/color/presentation/widgets/text_tile.dart';
 import 'package:get_it/get_it.dart';
 
 import 'package:flutter_color_app/features/color/domain/usecase/get_random_color.usecase.dart';
+import 'package:flutter_color_app/features/color/presentation/widgets/text_tile.dart';
 import 'package:flutter_color_app/infrastructure/theme/theme_extensions.dart';
 
 const String _helloThereText = 'Hello there';
