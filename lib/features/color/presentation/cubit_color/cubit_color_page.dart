@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_color_app/features/color/presentation/widgets/text_tile.dart';
 import 'package:get_it/get_it.dart';
 
 import 'package:flutter_color_app/features/color/presentation/cubit_color/cubit/color_cubit.dart';
 import 'package:flutter_color_app/infrastructure/theme/theme_extensions.dart';
+
+const String _helloThereText = 'Hello there';
+const String withCubitText = 'with Cubit';
 
 @RoutePage()
 class CubitColorPage extends StatefulWidget implements AutoRouteWrapper {
@@ -39,44 +43,14 @@ class _CubitColorPageState extends State<CubitColorPage> {
           onTap: _onChangedColor,
           child: Scaffold(
             backgroundColor: color,
-            body: _TextTile(
+            body: TextTile(
               backgroundColor: color,
+              title: _helloThereText,
+              subtitle: '($withCubitText)',
             ),
           ),
         );
       },
-    );
-  }
-}
-
-class _TextTile extends StatelessWidget {
-  final Color backgroundColor;
-
-  const _TextTile({
-    Key? key,
-    required this.backgroundColor,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'Hello there',
-            style: context.textTheme.headlineMedium!.copyWith(
-              color: context.textTheme.getTextColorBasedOnBackground(backgroundColor),
-            ),
-          ),
-          Text(
-            '(with Cubit)',
-            style: context.textTheme.headlineSmall!.copyWith(
-              color: context.textTheme.getTextColorBasedOnBackground(backgroundColor),
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

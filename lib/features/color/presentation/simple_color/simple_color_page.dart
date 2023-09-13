@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter_color_app/features/color/presentation/widgets/text_tile.dart';
 import 'package:get_it/get_it.dart';
 
 import 'package:flutter_color_app/features/color/domain/usecase/get_random_color.usecase.dart';
 import 'package:flutter_color_app/infrastructure/theme/theme_extensions.dart';
+
+const String _helloThereText = 'Hello there';
 
 @RoutePage()
 class SimpleColorPage extends StatefulWidget {
@@ -33,8 +36,9 @@ class _SimpleColorPageState extends State<SimpleColorPage> {
       onTap: _onChangedColor,
       child: Scaffold(
         backgroundColor: _backgroundColor,
-        body: _TextTile(
+        body: TextTile(
           backgroundColor: _backgroundColor,
+          title: _helloThereText,
         ),
       ),
     );
@@ -42,26 +46,5 @@ class _SimpleColorPageState extends State<SimpleColorPage> {
 
   void _onChangedColor() {
     setState(() => _backgroundColor = _getRandomColorUsecase());
-  }
-}
-
-class _TextTile extends StatelessWidget {
-  final Color backgroundColor;
-
-  const _TextTile({
-    Key? key,
-    required this.backgroundColor,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Hello there',
-        style: context.textTheme.headlineMedium!.copyWith(
-          color: context.textTheme.getTextColorBasedOnBackground(backgroundColor),
-        ),
-      ),
-    );
   }
 }
